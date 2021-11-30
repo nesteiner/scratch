@@ -1,0 +1,13 @@
+#+title: Record for Program
+
+* Component
+** Pomodoro Card
+*** feature
+- blur 失去焦点
+- 卡片状态切换
+- 动态组件 v-model
+
+*** child component
+**** Card
+**** CardBase
+**** CardExpand
