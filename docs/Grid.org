@@ -1,0 +1,213 @@
+#+title: Grid 容器
+* Grid
+[[file:~/文档/XMind/Grid.png]]
+网格布局有点难，这是一个重要的点，设置好布局为 =grid= 后，具体操作可以分为三部分
+** 规划网格
+*** 单元格规划
+如同作坐标轴，需要确定每一个点的位置后才能在具体位置绘制图形
+在网格布局中，需要知道每一个格子的位置才能在具体位置绘制图形
+一个最简单的例子设置
+#+begin_src css
+  .grid {
+      grid-template-columns: repeat(3, 100px);
+      grid-template-rows: repeat(3, 200px);
+  }
+#+end_src
+
+这样以后，这个网格容器中被划分为三列，三行，每一列的长度是 =100px= ，每一行的长度是 =200px=
+*** 区域规划
+上述方法需要手动设置，这里有方法可以自动化分割网格，无需考虑具体长度
+首先是要用 =grid-template-area= 设置好各个组件的布局位置，再使用 =grid-area= 指定每个组件的布局位置
+以圣杯布局为例
+
+#+DOWNLOADED: screenshot @ 2022-01-21 15:50:51
+[[file:~/ChiniBlogs/src/images/Layout/2022-01-21_15-50-51_screenshot.png]]
+
+HTML 结构为
+#+begin_src html
+  <div class="container">
+    <header class="header">header</header>
+    <aside class="aside-left">aside left</aside>
+    <main class="main">main</main>
+    <aside class="aside-right"></aside>
+    <footer class="footer"></footer>
+  </div>
+#+end_src
+
+定义 =Grid=
+#+begin_src css
+  .header{
+    grid-area: header;
+  }
+  .footer{
+    grid-area: footer; 
+  }
+  .main{
+    grid-area: main;
+  }
+  .aside-left{
+    grid-area: aside-left;
+  }
+  .aside-right{
+    grid-area: aside-right;
+  }
+  .container{
+    display: grid;
+    grid-template-areas: 
+            'header header header'
+            'aside-left main aside-right'
+            'footer footer footer';
+    min-height: 100vh;
+  }
+
+#+end_src
+*** 两个方法一起用
+通过上述的 =区域规划= 方法，我们可以看出，使用 =grid-template-areas= 是隐式得设置了行的长度和列的宽度，
+那么我们将 =grid-template-areas= , =grid-template-columns= 和 =grid-template-rows= 合起来使用也是可行的
+- 在样式中设置列的宽度
+   #+begin_src css
+     .container{
+       grid-template-columns: 200px 1fr 200px;
+     }
+   #+end_src
+- 在样式中设置行的长度
+  #+begin_src css
+    .container{
+      grid-template-rows: 50px 1fr 50px;
+    }
+  #+end_src
+
+** 分配空间
+在 =Grid= 插槽中，直接写入每个组件就行了，如同 =Flutter= 中 =Row= 的 =children= 属性一样
+#+begin_src html
+      <grid
+        class="grid-wrapper"
+        template-columns="repeat(3, 100px)"
+        template-rows="repeat(3, 100px)"
+        align-content="space-around"
+        gap="10px">
+        <div class="item1"> Item 1 </div>
+        <div class="item2"> Item 2 </div>
+        <div class="item3"> Item 3 </div>
+        <div class="item4"> Item 4 </div>
+      </grid>
+
+#+end_src
+** 调整组件
+接下来讨论如何调整子组件，这里有六个属性
+- =justify-content=
+- =align-content=
+- =justify-items=
+- =align-items=
+- =justify-self=
+- =align-self=
+
+这里先从一维的弹性布局来理解他们
+*** 一维的弹性布局
+在弹性布局中使元素居中，第一步是调整容器文本方向上的对齐属性，再是调整纵轴方向上的对齐属性
+这里涉及到两个属性 =justify-content= 与 =align-items=
+
+#+begin_src html
+  <div class="container">
+    <div class="center">
+      Hello World 
+    </div>
+  </div>
+#+end_src
+
+#+begin_src css
+  .container {
+      display: flex;
+      justify-content: center; 	/*文本方向*/
+      align-items: center;	/*纵轴方向*/
+  }
+#+end_src
+
+
+#+DOWNLOADED: screenshot @ 2022-01-21 16:15:18
+[[file:~/ChiniBlogs/src/images/Layout/2022-01-21_16-15-18_screenshot.png]]
+
+
+好，接着我们换个方向，并将文本方向(这时是纵轴)的对齐改为 =flex-start=
+#+begin_src css
+  .container {
+      flex-direction: column;
+      justify-content: flex-start;
+  }
+
+#+end_src
+
+#+DOWNLOADED: screenshot @ 2022-01-21 16:15:18
+[[file:~/ChiniBlogs/src/images/Layout/2022-01-21_16-15-18_screenshot.png]]
+
+可以发现，跟上面的测试一个样子，没有变，接下来不管怎么设置 =justify-content= 都不会变
+这个时候，我们注意到 =flex-direction= 为 =row= 时，容器的长度默认为父组件的 *100%* ，是一个固定的 __长度__
+在 =flex-direction= 为 =column= 时，为其设置一个固定的 __高度__ 会怎么样？
+#+begin_src css
+  .container {
+      height: 90px;
+  }
+#+end_src
+
+
+#+DOWNLOADED: screenshot @ 2022-01-21 20:01:21
+[[file:~/ChiniBlogs/src/images/Layout/2022-01-21_20-01-21_screenshot.png]]
+
+
+看来需要一个固定的长度才能体现容器的 *弹性布局* ，对网格布局也是如此
+*** 二维的网格布局
+既然是二维的布局，我们把网格的每一行，每一列都看作单独的弹性容器，其轴线只有一条
+在网格布局中设计到的属性有四个
+- =justify-content=
+- =align-content=
+- =justify-items=
+- =align-items=
+我们已经知道 =justify-content= 调整的方向是容器主轴，类似的 =align-content= 调整的方向是容器纵轴
+但要切记该属性对单行弹性盒子模型无效(即: 带有 flex-wrap: nowrap)
+这里我们来试试看
+
+#+begin_src html
+  <grid
+    class="grid-wrapper"
+    template-columns="repeat(3, 100px)"
+    template-rows="repeat(3, 100px)"
+    align-content="space-around"
+    gap="10px">
+    <div class="item1"> Item 1 </div>
+    <div class="item2"> Item 2 </div>
+    <div class="item3"> Item 3 </div>
+    <div class="item4"> Item 4 </div>
+  </grid>
+#+end_src
+
+
+#+DOWNLOADED: screenshot @ 2022-01-21 20:10:47
+[[file:~/ChiniBlogs/src/images/Layout/2022-01-21_20-10-47_screenshot.png]]
+
+接着，我们设置 *文本方向* 上的对齐方式设置为 =center=
+#+begin_src css
+  .grid-wrapper {
+      justify-content: center;
+  }
+#+end_src
+
+
+#+DOWNLOADED: screenshot @ 2022-01-21 20:12:42
+[[file:~/ChiniBlogs/src/images/Layout/2022-01-21_20-12-42_screenshot.png]]
+
+接着，我们会发现，将 =align-content= 设置为 =center= 时是无效的
+尝试设置下固定高度
+#+begin_src css
+  .grid-wrapper {
+      height: 500px;
+  }
+#+end_src
+
+
+#+DOWNLOADED: screenshot @ 2022-01-21 20:23:22
+[[file:~/ChiniBlogs/src/images/Layout/2022-01-21_20-23-22_screenshot.png]]
+
+*** 参考文章
+[[https://stackoverflow.com/questions/48535585/what-is-difference-between-justify-self-justify-items-and-justify-content-in-cs][这篇文章讨论了上述六个属性的异同]]
+#+DOWNLOADED: screenshot @ 2022-01-21 20:25:17
+[[file:~/ChiniBlogs/src/images/Layout/2022-01-21_20-25-17_screenshot.png]]

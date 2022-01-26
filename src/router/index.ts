@@ -19,6 +19,16 @@ const routes: Array<RouteRecordRaw> = [
     path: '/playground',
     name: 'playground',
     component: () => import('@/views/PlayGround.vue')
+  },
+  {
+    path: '/justify',
+    name: 'justify',
+    component: () => import('@/views/justify.vue')
+  },
+  {
+    path: '/grid',
+    name: 'grid',
+    component: () => import('@/views/grid.vue')
   }
 ]
 
