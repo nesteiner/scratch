@@ -1,6 +1,6 @@
 #+title: Grid 容器
 * Grid
-[[file:~/文档/XMind/Grid.png]]
+[[file:./docs/images/Grid.png]]
 网格布局有点难，这是一个重要的点，设置好布局为 =grid= 后，具体操作可以分为三部分
 ** 规划网格
 *** 单元格规划
@@ -21,7 +21,7 @@
 以圣杯布局为例
 
 #+DOWNLOADED: screenshot @ 2022-01-21 15:50:51
-[[file:~/ChiniBlogs/src/images/Layout/2022-01-21_15-50-51_screenshot.png]]
+[[file:./docs/images/Layout/2022-01-21_15-50-51_screenshot.png]]
 
 HTML 结构为
 #+begin_src html
@@ -125,7 +125,7 @@ HTML 结构为
 
 
 #+DOWNLOADED: screenshot @ 2022-01-21 16:15:18
-[[file:~/ChiniBlogs/src/images/Layout/2022-01-21_16-15-18_screenshot.png]]
+[[file:./docs/images/Layout/2022-01-21_16-15-18_screenshot.png]]
 
 
 好，接着我们换个方向，并将文本方向(这时是纵轴)的对齐改为 =flex-start=
@@ -138,7 +138,7 @@ HTML 结构为
 #+end_src
 
 #+DOWNLOADED: screenshot @ 2022-01-21 16:15:18
-[[file:~/ChiniBlogs/src/images/Layout/2022-01-21_16-15-18_screenshot.png]]
+[[file:./docs/images/Layout/2022-01-21_16-15-18_screenshot.png]]
 
 可以发现，跟上面的测试一个样子，没有变，接下来不管怎么设置 =justify-content= 都不会变
 这个时候，我们注意到 =flex-direction= 为 =row= 时，容器的长度默认为父组件的 *100%* ，是一个固定的 __长度__
@@ -151,7 +151,7 @@ HTML 结构为
 
 
 #+DOWNLOADED: screenshot @ 2022-01-21 20:01:21
-[[file:~/ChiniBlogs/src/images/Layout/2022-01-21_20-01-21_screenshot.png]]
+[[file:./docs/images/Layout/2022-01-21_20-01-21_screenshot.png]]
 
 
 看来需要一个固定的长度才能体现容器的 *弹性布局* ，对网格布局也是如此
@@ -182,7 +182,7 @@ HTML 结构为
 
 
 #+DOWNLOADED: screenshot @ 2022-01-21 20:10:47
-[[file:~/ChiniBlogs/src/images/Layout/2022-01-21_20-10-47_screenshot.png]]
+[[file:./docs/images/Layout/2022-01-21_20-10-47_screenshot.png]]
 
 接着，我们设置 *文本方向* 上的对齐方式设置为 =center=
 #+begin_src css
@@ -193,7 +193,7 @@ HTML 结构为
 
 
 #+DOWNLOADED: screenshot @ 2022-01-21 20:12:42
-[[file:~/ChiniBlogs/src/images/Layout/2022-01-21_20-12-42_screenshot.png]]
+[[file:./docs/images/Layout/2022-01-21_20-12-42_screenshot.png]]
 
 接着，我们会发现，将 =align-content= 设置为 =center= 时是无效的
 尝试设置下固定高度
@@ -205,9 +205,9 @@ HTML 结构为
 
 
 #+DOWNLOADED: screenshot @ 2022-01-21 20:23:22
-[[file:~/ChiniBlogs/src/images/Layout/2022-01-21_20-23-22_screenshot.png]]
+[[file:./docs/images/Layout/2022-01-21_20-23-22_screenshot.png]]
 
 *** 参考文章
 [[https://stackoverflow.com/questions/48535585/what-is-difference-between-justify-self-justify-items-and-justify-content-in-cs][这篇文章讨论了上述六个属性的异同]]
 #+DOWNLOADED: screenshot @ 2022-01-21 20:25:17
-[[file:~/ChiniBlogs/src/images/Layout/2022-01-21_20-25-17_screenshot.png]]
+[[file:./docs/images/Layout/2022-01-21_20-25-17_screenshot.png]]
