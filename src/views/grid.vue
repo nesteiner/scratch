@@ -20,6 +20,19 @@
       <div class="item4" v-area:d> Item 4 </div>
     </grid>
 
+    <grid
+      class="grid-wrapper"
+      template-columns="repeat(3, 100px)"
+      template-rows="repeat(3, 100px)"
+      align-content="space-around"
+      gap="10px">
+      <div class="item1"> Item 1 </div>
+      <div class="item2"> Item 2 </div>
+      <div class="item3"> Item 3 </div>
+      <div class="item4"> Item 4 </div>
+    </grid>
+
+
     <div class="flex-wrapper">
       <div class="item1"> Item 1 </div>
       <div class="item2"> Item 2 </div>
@@ -27,16 +40,30 @@
       <div class="item4"> Item 4 </div>
     </div>
 
+    <div class="container">
+      <div class="child">
+	Hello World
+      </div>
+
+      <!-- <div class="child">
+	   Fuck You
+	   </div> -->
+    </div>
   </div>
 </template>
 
 <script lang="ts" setup>
- import Grid from '@/components/Grid.vue'
+ import Grid from '@/components/Layout/Grid.vue'
  import {area as vArea} from '@/directives'
- const areas = '"a a b" \
-"a a b" \
-"c d d" \
-'
+ // const areas = '"a a b" \
+ // "a a b" \
+ // "c d d" \
+ // '
+
+ const areas = ["'a a b'",
+	       "'a a b'",
+	       "'c d d'"].join('')
+ 
 </script>
 
 <style lang="scss" scoped>
@@ -121,5 +148,22 @@
      color: #d9480f;
    }
 
+ }
+</style>
+<style lang="scss" scoped>
+ div.container {
+   display: flex;
+   flex-direction: column;
+   justify-content: flex-start;
+   align-items: center;
+   /* height: 90px; */
+
+   border: 1px solid black;
+   padding: 10px;
+
+   div.child {
+     height: 30px;
+     background: grey;
+   }
  }
 </style>

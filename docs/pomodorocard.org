@@ -1,9 +1,0 @@
-#+title: PomodoroCard
-* Introduction
-this component is built reference to [[http://pomofocus.io][pomodoro focus]]
-
-** Props
-
-** Struct
-
-** Example

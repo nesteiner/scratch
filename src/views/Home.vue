@@ -10,38 +10,63 @@
 	 <ForkCard/> -->
         <!-- <hover-div/> -->
 
-    <test text="Fuck You"/>
+    <Dialog text="click me"
+	    v-model:show="show"
+	    @cancel="onCancel"
+	    @submit="onSubmit">
+      <template v-slot:content>
+	<h1> Hello World </h1>
+	<h1> Hello World </h1>
+	<h1> Hello World </h1>
+	<h1> Hello World </h1>
+	<h1> Hello World </h1>
+	<h1> Hello World </h1>
+	<h1> Hello World </h1>
+	<h1> Hello World </h1>
+	<h1> Hello World </h1>
+	<h1> Hello World </h1>
+      </template>
+    </Dialog>
   </div>
 </template>
 
 <script lang="ts">
  import { defineComponent, ref } from 'vue';
  import HelloWorld from '@/components/HelloWorld.vue'; // @ is an alias to /src
- import {Card} from '@/components/Pomodoro'
+ import {Dialog} from '@/components/Component'
  import {ForkCard} from '@/components/ForkPomodoro'
- import HoverDiv from '@/components/hover.vue'
-import Test from '@/components/test.vue'
  export default defineComponent({
    name: 'Home',
    components: {
      HelloWorld,
-     Card,
      ForkCard,
-     HoverDiv,
-      Test
+     Dialog
    },
 
    setup() {
-     let text = ref('Hello World')
-     let isdone = ref(false)
-     let expect = ref(1)
-     let finished = ref(0)
+     const text = ref('Hello World')
+     const isdone = ref(false)
+     const expect = ref(1)
+     const finished = ref(0)
+     const show = ref(false)
+
+     function onCancel() {
+       console.log('on cancel called')
+     }
+
+     function onSubmit() {
+       console.log('on submit called')
+     }
 
      return {
        text,
        isdone,
        expect,
-       finished
+       finished,
+       show,
+
+       onCancel,
+       onSubmit,
      }
    }
 });

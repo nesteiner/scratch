@@ -1,0 +1,48 @@
+#+title: PomodoroCard
+* Pomodoro
+** 介绍
+这里仿照 [[https://pomofocus.io/][Pomodoro]] 写一个番茄钟计时器组件，已完成的功能有
+- 番茄计时
+- 添加任务卡片
+- 修改任务卡片
+
+只需要导入组件即可使用
+#+begin_src html
+  <template>
+    <div class="pomodoro-view" >
+      <pomodoro/>
+    </div>
+  </template>
+  <script lang="ts" setup>
+    import {Pomodoro} from '@/components/Pomodoro'
+  </script>
+#+end_src
+[[file:./images/screenshot1.png]]
+
+#+DOWNLOADED: screenshot @ 2022-02-13 20:02:00
+[[file:images/介绍/2022-02-13_20-02-00_screenshot.png]]
+
+#+DOWNLOADED: screenshot @ 2022-02-13 20:02:27
+[[file:images/介绍/2022-02-13_20-02-27_screenshot.png]]
+
+** 没有实现的功能
+*** 颜色切换
+
+#+DOWNLOADED: screenshot @ 2022-02-13 20:04:05
+[[file:images/Pomodoro/2022-02-13_20-04-05_screenshot.png]]
+
+#+DOWNLOADED: screenshot @ 2022-02-13 20:04:14
+[[file:images/Pomodoro/2022-02-13_20-04-14_screenshot.png]]
+
+原来的网页中每次切换时间都会更换背景色，这里我好想忘了做
+*** 手动设置时间值
+
+#+DOWNLOADED: screenshot @ 2022-02-13 20:05:10
+[[file:images/Pomodoro/2022-02-13_20-05-10_screenshot.png]]
+Pomodoro 应该还有一个设置界面，专门设置时间参数，精力不够
+*** 播放铃声
+在计时结束后播放铃声，我也忘了弄
+后续应该有选项框选择铃声，还需要设置音量大小
+
+#+DOWNLOADED: screenshot @ 2022-02-13 20:08:06
+[[file:images/Pomodoro/2022-02-13_20-08-06_screenshot.png]]
