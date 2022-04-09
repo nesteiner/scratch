@@ -20,26 +20,26 @@ const routes: Array<RouteRecordRaw> = [
     name: 'playground',
     component: () => import('@/views/PlayGround.vue')
   },
-  {
-    path: '/justify',
-    name: 'justify',
-    component: () => import('@/views/justify.vue')
-  },
+  // {
+  //   path: '/justify',
+  //   name: 'justify',
+  //   component: () => import('@/views/justify.vue')
+  // },
   {
     path: '/grid',
     name: 'grid',
     component: () => import('@/views/grid.vue')
   },
-  {
-    path: '/pomodoro',
-    name: 'pomodoro',
-    component: () => import('@/views/pomodoro.vue')
-  },
-  {
-    path: '/drag',
-    name: 'drag',
-    component: () => import('@/views/drag.vue')
-  }
+  // {
+  //   path: '/pomodoro',
+  //   name: 'pomodoro',
+  //   component: () => import('@/views/pomodoro.vue')
+  // },
+  // {
+  //   path: '/drag',
+  //   name: 'drag',
+  //   component: () => import('@/views/drag.vue')
+  // }
 ]
 
 const router = createRouter({

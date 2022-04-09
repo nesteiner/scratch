@@ -50,35 +50,113 @@
 
 * Component
 ** Dialog
-*** 使用
-=Dialog= 分为 *入口* 和 *内容* 两部分
+*** 插槽
+- =#default=
+- =#footer=
+
+*** 属性
+- =title=
+*** 示例  
 #+begin_src html
-  <Dialog text="click me"
-          v-model:show="show"
-          @cancel="onCancel"
-          @submit="onSubmit">
-    <template v-slot:content>
-      <h1> Hello World </h1>
-      <h1> Hello World </h1>
-      <h1> Hello World </h1>
-      <h1> Hello World </h1>
-      <h1> Hello World </h1>
-      <h1> Hello World </h1>
-      <h1> Hello World </h1>
-      <h1> Hello World </h1>
-      <h1> Hello World </h1>
-      <h1> Hello World </h1>
+  <button @click="show = true"> Click me </button>
+
+  <Dialog v-model="show" title="Tips">
+    <span> This is a message </span>
+    <template #footer>
+      <span class="footer">
+        <button @click="show = false">Cancel</button>
+        <button @click="show = false">Confirm</button>
+      </span>
     </template>
   </Dialog>
+
 #+end_src
 
-#+DOWNLOADED: screenshot @ 2022-03-24 08:01:40
-[[file:./docs/images/2022-03-24_08-01-40_screenshot.png]]
+#+begin_src typescript
+  const show = ref(false)
+#+end_src
 
-*** 接口
-- =@cancel= 点击 =Cancel= 按钮后的事件
-- =@submit= 点击 =Submit= 按钮后的事件
+当然也可以自定义 *view*
+#+begin_src html
+  <button @click="dialogTableVisible = true"> open a table nested Dialog </button>
+  <Dialog v-model="dialogTableVisible" title="Shipping address">
+    <table>
+      <tr>
+        <td>1</td>
+        <td>2</td>
+        <td>3</td>
+      </tr>
+    </table>
+  </Dialog>
+
+#+end_src
+
+#+begin_src typescript
+  const dialogTableVisible = ref(false)
+#+end_src
+
+** Drawer
 *** 插槽
-- =template v-slot:content= 对话框内容
-*** 注意
-对话框的大小暂时是固定的，因为我不会写，其中 =width: 70%=, =height: 60%=
+- 默认插槽 =#default=
+- =#footer=
+*** 属性
+- =direction=
+  取值在
+  #+begin_src typescript
+    type Direction = "top-bottom" | "bottom-top" | "left-right" | "right-left"
+  #+end_src
+
+- =title=
+  =String= 类型
+
+*** 示例
+#+begin_src html
+  <button @click="drawerFooterVisible = true">with Footer</button>
+
+  <Drawer v-model="drawerFooterVisible" direction="left-right" title="This is Title">
+    <template #default>
+      <table>
+        <template v-for="i in [1, 2, 3, 4]" :key="i">
+          <tr>
+            <td>1</td>
+            <td>2</td>
+            <td>3</td>
+          </tr>
+        </template>
+      </table>
+    </template>
+
+    <template #footer>
+      <div style="flex: auto">
+        <button @click="drawerFooterVisible = false">cancel</button>
+        <button @click="drawerFooterVisible = false">confirm</button>
+      </div>
+    </template>
+  </Drawer>
+
+#+end_src
+
+#+begin_src typescript
+  const drawerFooterVisible = ref(false)
+#+end_src
+
+** Tabbar
+*** 插槽
+- 默认插槽 =#default=
+*** 属性
+- =active-name=
+  =String= 类型
+*** 子组件
+**** 插槽
+- 默认插槽 =#default=
+**** 属性
+- =name=
+  =String= 类型
+*** 示例
+#+begin_src html
+  <Tabbar active-name="主页">
+    <TabbarItem name="主页">
+      <ShoppingView/>
+    </TabbarItem>
+  </Tabbar>
+#+end_src
