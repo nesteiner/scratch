@@ -76,6 +76,19 @@
 	</div>
       </template>
     </Drawer>
+
+    <Dropdown>
+      <button>Click me</button>
+
+      <template #dropdown>
+	<DropdownMenu>
+	  <DropdownMenuItem @click="clickMenuItem(1)">1</DropdownMenuItem>
+	  <DropdownMenuItem @click="clickMenuItem(2)">2</DropdownMenuItem>
+	  <DropdownMenuItem @click="clickMenuItem(3)">3</DropdownMenuItem>
+	  <DropdownMenuItem @click="clickMenuItem(4)">4</DropdownMenuItem>
+	</DropdownMenu>
+      </template>
+    </Dropdown>
   </div>
 </template>
 
@@ -83,11 +96,16 @@
  import { ref } from '@vue/reactivity'
  import Dialog from '@/components/Component/Dialog.vue';
  import Drawer from '@/components/Component/Drawer.vue';
+ import {Dropdown, DropdownMenu, DropdownMenuItem} from '@/components/Component/Dropdown'
  // const span = ref<HTMLElement>()
  const show = ref(false)
  const dialogTableVisible = ref(false)
  const drawerFooterVisible = ref(false)
  
+ function clickMenuItem(index: number) {
+   console.log(`${index} is clicked`)
+ }
+
 </script>
 
 <style lang="scss" scoped>

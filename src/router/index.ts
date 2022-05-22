@@ -30,6 +30,12 @@ const routes: Array<RouteRecordRaw> = [
     name: 'grid',
     component: () => import('@/views/grid.vue')
   },
+
+  {
+    path: '/table',
+    name: 'table',
+    component: () => import('@/views/Table.vue')
+  }
   // {
   //   path: '/pomodoro',
   //   name: 'pomodoro',
