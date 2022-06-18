@@ -1,0 +1,232 @@
+
+tsconfig.json,1028
+    "target": "es5",target3,25
+    "module": "esnext",module4,46
+    "strict": true,strict5,70
+    "jsx": "preserve",jsx6,90
+    "importHelpers": true,importHelpers7,113
+    "moduleResolution": "node",moduleResolution8,140
+    "skipLibCheck": true,skipLibCheck9,172
+    "esModuleInterop": true,esModuleInterop10,198
+    "allowSyntheticDefaultImports": true,allowSyntheticDefaultImports11,227
+    "sourceMap": true,sourceMap12,269
+    "baseUrl": ".",baseUrl13,292
+      "webpack-env"015,327
+    "types": [types14,312
+        "src/*"019,384
+      "@/*": [@/*18,369
+    "paths": {paths17,354
+      "esnext",023,428
+      "dom",124,444
+      "dom.iterable",225,457
+      "scripthost"326,479
+    "lib": [lib22,415
+  "compilerOptions": {compilerOptions2,2
+    "src/**/*.ts",030,524
+    "src/**/*.tsx",131,543
+    "src/**/*.vue",232,563
+    "tests/**/*.ts",333,583
+    "tests/**/*.tsx"434,604
+  "include": [include29,509
+    "node_modules"037,645
+  "exclude": [exclude36,630
+
+README.org,325
+* LayoutLayout3,23
+** DONE 弹性布局DONE6,151
+** TODO 层叠布局TODO29,1067
+** DONE 限制容器DONE31,1089
+*** SizedBoxSizedBox33,1168
+*** FractionalFractional41,1354
+** DONE 网格布局DONE48,1526
+* ComponentComponent51,1583
+** DialogDialog52,1595
+** DrawerDrawer98,2495
+** TabbarTabbar143,3484
+
+docs/Pomodoro.org,25
+* PomodoroPomodoro2,22
+
+docs/Grid.org,17
+* GridGrid2,21
+
+src/main.ts,36
+const app = createApp(App)app4,90
+
+src/shims-vue.d.ts,138
+  const component: DefineComponent<{}, {}, any>component4,91
+declare interface Event {Event8,169
+  dataTransfer: {dataTransfer9,195
+
+src/App.vue,0
+
+src/components/HelloWorld.vue,0
+
+src/components/Child.vue,0
+
+src/components/Layout/index.ts,0
+
+src/components/Layout/Column.vue,0
+
+src/components/Layout/Grid.vue,0
+
+src/components/Layout/SizedBox.vue,0
+
+src/components/Layout/Center.vue,0
+
+src/components/Layout/Padding.vue,0
+
+src/components/Layout/Positioned.vue,0
+
+src/components/Layout/Stack.vue,0
+
+src/components/Layout/Row.vue,0
+
+src/components/Layout/Fractional.vue,0
+
+src/components/Layout/Expanded.vue,0
+
+src/components/ForkPomodoro/index.ts,0
+
+src/components/ForkPomodoro/CardBase.vue,0
+
+src/components/ForkPomodoro/Card.vue,0
+
+src/components/ForkPomodoro/CardExpand.vue,0
+
+src/components/Pomodoro/index.ts,0
+
+src/components/Pomodoro/TaskCard/index.ts,0
+
+src/components/Pomodoro/TaskCard/TaskCard.vue,0
+
+src/components/Pomodoro/TaskCard/CardBase.vue,0
+
+src/components/Pomodoro/TaskCard/CardExpand.vue,0
+
+src/components/Pomodoro/TaskCard/TaskCreator.vue,0
+
+src/components/Pomodoro/Pomodoro.vue,0
+
+src/components/Pomodoro/types.ts,267
+interface Task {Task1,0
+  id: number,id2,17
+  name: string,name3,31
+  isdone: boolean,isdone4,47
+  finished: number,finished5,66
+  expect: number,expect6,86
+ interface Time {Time9,107
+   minutes: number,minutes10,125
+   seconds: numberseconds11,145
+
+src/components/Pomodoro/Timer.vue,0
+
+src/components/Pomodoro/Setting/index.ts,0
+
+src/components/Pomodoro/Setting/Setting.vue,0
+
+src/components/Pomodoro/Setting/Modal.vue,0
+
+src/components/Pomodoro/Setting/button.vue,0
+
+src/components/Pomodoro/Setting/Panel.vue,0
+
+src/components/Parent.vue,0
+
+src/components/Component/index.ts,0
+
+src/components/Component/Drawer.vue,0
+
+src/components/Component/Table/index.ts,0
+
+src/components/Component/Table/Table.vue,0
+
+src/components/Component/Table/TableColumn.vue,0
+
+src/components/Component/Tabbar/Tabbar.vue,0
+
+src/components/Component/Tabbar/index.ts,0
+
+src/components/Component/Tabbar/TabbarItem.vue,0
+
+src/components/Component/Dropdown/index.ts,0
+
+src/components/Component/Dropdown/Dropdown.vue,0
+
+src/components/Component/Dropdown/MenuItem.vue,0
+
+src/components/Component/Dropdown/Menu.vue,0
+
+src/components/Component/Dialog.vue,0
+
+src/directives/index.ts,0
+
+src/directives/stack.ts,44
+const stack: ObjectDirective = {stack3,54
+
+src/directives/single.ts,46
+const single: ObjectDirective = {single3,54
+
+src/directives/focus.ts,45
+const focus: ObjectDirective = {focus7,113
+
+src/directives/area.ts,42
+const area: ObjectDirective = {area3,72
+
+src/directives/pin.ts,40
+const pin: ObjectDirective = {pin3,72
+
+src/router/index.ts,130
+const routes: Array<RouteRecordRaw> = [routes4,114
+    path: '/about',path11,220
+const router = createRouter({router51,1160
+
+src/views/PlayGround.vue,0
+
+src/views/grid.vue,0
+
+src/views/Home.vue,0
+
+src/views/Table.vue,0
+
+src/views/About.vue,0
+
+.volarrc,0
+
+.tags,0
+
+public/index.html,36
+    <div id="app"></div>app14,521
+
+yarn.lock,0
+
+vue.config.js,224
+	ignored: [/node_modules/, /docs/, /\.org/, /\.#.*/, /\.tags/],ignored5,80
+      watchOptions: {watchOptions4,58
+    devServer: {devServer3,41
+  configureWebpack: {configureWebpack2,19
+module.exports = {exports1,0
+
+package.json,964
+  "name": "scratch",name2,2
+  "version": "0.1.0",version3,23
+  "private": true,private4,45
+    "serve": "vue-cli-service serve",serve6,79
+    "build": "vue-cli-service build"build7,117
+  "scripts": {scripts5,64
+    "@varld/outside-click": "^0.1.1",@varld/outside-click10,179
+    "vue": "^3.0.0",vue11,217
+    "vue-router": "^4.0.0-0"vue-router12,238
+  "dependencies": {dependencies9,159
+    "@vue/cli-plugin-router": "~4.5.0",@vue/cli-plugin-router15,295
+    "@vue/cli-plugin-typescript": "~4.5.0",@vue/cli-plugin-typescript16,335
+    "@vue/cli-service": "~4.5.0",@vue/cli-service17,379
+    "@vue/compiler-sfc": "^3.0.0",@vue/compiler-sfc18,413
+    "sass": "^1.26.5",sass19,448
+    "sass-loader": "^8.0.2",sass-loader20,471
+    "typescript": "~4.1.5"typescript21,500
+  "devDependencies": {devDependencies14,272
+    "> 1%",024,552
+    "last 2 versions",125,564
+    "not dead"226,587
+  "browserslist": [browserslist23,532

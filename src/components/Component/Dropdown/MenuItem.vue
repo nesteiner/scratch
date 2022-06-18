@@ -8,10 +8,10 @@
  import {inject, Ref} from 'vue'
 
  const toggled = inject('ref-toggled') as Ref<boolean>
- const emit = defineEmits(['click'])
+ const emits = defineEmits(['click'])
  function onClick() {
    toggled.value = false
-   emit('click')
+   emits('click')
  }
 </script>
 <style lang="scss" scoped>

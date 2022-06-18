@@ -89,6 +89,34 @@
 	</DropdownMenu>
       </template>
     </Dropdown>
+
+    <div class="checkbox-test">
+      <div class="checkbox">
+	<input type="checkbox" id="jack" value="Jack" v-model="checkedNames">
+	<div class="box"/>
+      </div>
+
+      <!-- <div class="checkbox">
+	   <input type="checkbox" id="john" value="John" v-model="checkedNames">
+	   <div class="box"/>
+	   </div> -->
+
+      <Checkbox value="John" v-model="checkedNames">
+	<div class="box"/>
+      </Checkbox>
+      <!-- <div class="checkbox">
+	   <input type="checkbox" id="mike" value="Mike" v-model="checkedNames">
+	   Hello World
+	   </div> -->
+
+      <Checkbox value="Mike" v-model="checkedNames">
+	Hello World
+      </Checkbox>
+      <br>
+      <span>Checked names: {{ checkedNames }}</span>
+    </div>
+
+    <Pagination/>
   </div>
 </template>
 
@@ -97,15 +125,16 @@
  import Dialog from '@/components/Component/Dialog.vue';
  import Drawer from '@/components/Component/Drawer.vue';
  import {Dropdown, DropdownMenu, DropdownMenuItem} from '@/components/Component/Dropdown'
+ import {Checkbox, Pagination} from '@/components/Component'
  // const span = ref<HTMLElement>()
  const show = ref(false)
  const dialogTableVisible = ref(false)
  const drawerFooterVisible = ref(false)
- 
- function clickMenuItem(index: number) {
-   console.log(`${index} is clicked`)
- }
+ const checkedNames = ref([])
 
+ function clickMenuItem(index: number) {
+   console.log(`${index} is cliked`)
+ }
 </script>
 
 <style lang="scss" scoped>
@@ -113,5 +142,17 @@
    height: 250px;
    width: 250px;
    background: red;
+ }
+
+ div.checkbox {
+   display: flex;
+   align-items: center;
+   height: 30px;
+   div.box {
+     display: inline-block;
+     width: 100px;
+     height: 20px;
+     background: black;
+   }
  }
 </style>

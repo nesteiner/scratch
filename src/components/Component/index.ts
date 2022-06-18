@@ -1,3 +1,7 @@
 export {default as Dialog} from './Dialog.vue'
 export {default as Drawer} from './Drawer.vue'
 export {Tabbar, TabbarItem} from './Tabbar'
+export * from './Dropdown'
+export * from './Table'
+export {default as Checkbox} from './Checkbox.vue'
+export {default as Pagination} from './Pagination.vue'
