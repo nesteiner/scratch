@@ -26,21 +26,47 @@
 
 <script lang="ts" setup>
  import {computed, ref} from 'vue'
+ const props = defineProps({
+   totalPages: {type: Number, default: 0},
+   pageSize: {type: Number, default: 5}
+ })
 
  const currentPage = ref<string | number>(1)
- const totalPages = ref(50)
 
  const emits = defineEmits(['select'])
  const pages = computed(() => {
    const c = currentPage.value;
-   const t = totalPages.value;
+   const t = props.totalPages;
 
-   if (c <= 5) {
-     return [1, 2, 3, 4, 5, 6, 7, 8, 9, '...', t]  //第一种情况
-   } else if (c >= t - 4) {
-     return [1, '...', t-8, t-7, t-6, t-5, t-4, t-3, t-2, t-1, t] //第二种情况
-   } else {
-     return [1, '...', c-3, c-2, c-1, c, c+1, c+2, c+3, '...', t]  //第三种情况
+   const halfpage = Math.floor(props.pageSize / 2);
+
+   if(props.totalPages < 10) {
+     return Array.from({length: props.totalPages}, (_, index) => index + 1)
+   } else{
+     if (c <= halfpage + 1) {
+       let array = Array.from({length: props.pageSize}, (_, i) => i + 1)
+       array.push('...')
+       array.push(t);
+       // return [1, 2, 3, 4, 5, 6, 7, 8, 9, '...', t]  //第一种情况
+       return array;
+     } else if (c >= t - halfpage) {
+       let array = [1, '...']
+       for (let i = t - props.pageSize; i <= t; i += 1) {
+	 array.push(i);
+       }
+       // return [1, '...', t-8, t-7, t-6, t-5, t-4, t-3, t-2, t-1, t] //第二种情况
+       return array;
+     } else {
+       let array = [1, '...']
+       for (let i = c - (halfpage - 1); i <= c + (halfpage -1); i += 1) {
+	 array.push(i)
+       }
+
+       array.push("...")
+       array.push(t)
+       // return [1, '...', c-3, c-2, c-1, c, c+1, c+2, c+3, '...', t]  //第三种情况
+       return array;
+     }
    }
 
  })

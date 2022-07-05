@@ -116,7 +116,7 @@
       <span>Checked names: {{ checkedNames }}</span>
     </div>
 
-    <Pagination/>
+    <Pagination :total-pages="50" :page-size="10" />
   </div>
 </template>
 
