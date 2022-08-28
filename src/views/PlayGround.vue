@@ -122,10 +122,10 @@
 
 <script lang="ts" setup>
  import { ref } from '@vue/reactivity'
- import Dialog from '@/components/Component/Dialog.vue';
- import Drawer from '@/components/Component/Drawer.vue';
- import {Dropdown, DropdownMenu, DropdownMenuItem} from '@/components/Component/Dropdown'
- import {Checkbox, Pagination} from '@/components/Component'
+ import Dialog from '@/components/Dialog.vue';
+ import Drawer from '@/components/Drawer.vue';
+ import {Dropdown, DropdownMenu, DropdownMenuItem} from '@/components/dropdown'
+ import {Checkbox, Pagination} from '@/components'
  // const span = ref<HTMLElement>()
  const show = ref(false)
  const dialogTableVisible = ref(false)

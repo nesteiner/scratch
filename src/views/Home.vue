@@ -33,14 +33,13 @@
 <script lang="ts">
  import { defineComponent, ref } from 'vue';
  import HelloWorld from '@/components/HelloWorld.vue'; // @ is an alias to /src
- import {Dialog} from '@/components/Component'
- import {ForkCard} from '@/components/ForkPomodoro'
+ import {Dialog} from '@/components'
+
  export default defineComponent({
    name: 'Home',
    components: {
      HelloWorld,
-     ForkCard,
-     Dialog
+      Dialog
    },
 
    setup() {

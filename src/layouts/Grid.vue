@@ -5,7 +5,7 @@
 </template>
 
 <script lang="ts" setup>
-import { computed, PropType } from "@vue/runtime-core"
+import { computed, PropType } from "vue"
 
  type Content = 'start' | 'end' | 'center' | 'stretch' | 'space-around' | 'space-between' | 'space-evenly' | 'none'
  type Items = 'stretch' | 'start' | 'end' | 'center' | 'baseline' | 'none'

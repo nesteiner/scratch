@@ -9,7 +9,7 @@
 </template>
 
 <script lang="ts" setup>
- import {Table, TableColumn} from '@/components/Component/Table'
+ import {Table, TableColumn} from '@/components/table'
  const tableData = [
    {
      id: 1,

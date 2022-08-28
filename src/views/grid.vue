@@ -53,7 +53,7 @@
 </template>
 
 <script lang="ts" setup>
- import Grid from '@/components/Layout/Grid.vue'
+ import Grid from '@/layouts/Grid.vue'
  import {area as vArea} from '@/directives'
  // const areas = '"a a b" \
  // "a a b" \

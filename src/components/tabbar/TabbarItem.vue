@@ -5,7 +5,7 @@
 </template>
 
 <script lang="ts" setup>
-import { inject, onMounted, Ref } from "@vue/runtime-core"
+import { inject, onMounted, Ref } from "vue"
 
  const props = defineProps({
    name: String,

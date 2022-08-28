@@ -5,7 +5,7 @@
 </template>
 
 <script lang="ts" setup>
-import { computed, ref } from "@vue/reactivity"
+import { computed, ref } from "vue"
 
  const props = defineProps({
    width: {
