@@ -35,6 +35,7 @@
 
 <style lang="scss" scoped>
  div.row {
+   width: 100%;
    display: flex;
    justify-content: v-bind(mainAxis);
    align-items: v-bind(crossAxis);
