@@ -1,13 +1,20 @@
 <template>
   <div class="testview">
-    <Column class="column">
-      <h3>Hello World</h3>
-    </Column>
+    <Row>
+      <Column class="column">
+        <h3>Hello World</h3>
+      </Column>
+      <h3> Fuck You</h3>
+    </Row>
+    <div class="column2">
+      <div class="box"/>
+      <div class="box"/>
+    </div>
   </div>
 </template>
 
 <script lang="ts" setup>
-import Column from "@/layouts/Column.vue";
+import {Row, Column} from "@/layouts";
 
 </script>
 
@@ -15,6 +22,17 @@ import Column from "@/layouts/Column.vue";
 div.testview {
   .column {
     border: 1px solid black;
+  }
+
+  .column2 {
+    height: 500px;
+    border: 3px solid black;
+
+    .box {
+      height: 100%;
+      width: 100%;
+      border: 1px solid red;
+    }
   }
 }
 </style>

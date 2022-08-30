@@ -37,7 +37,6 @@
  div.column {
    display: flex;
    width: fit-content;
-   height: 100%;
    flex-direction: column;
    justify-content: v-bind(mainAxis);
    align-items: v-bind(crossAxis);
