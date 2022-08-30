@@ -2,11 +2,11 @@
   <div class="tabbar">
     <div class="names row">
       <template v-for="(name, index) in names" :key="index">
-	<div
-	  @click="clickItem(name)"
-	  :class="{active: activeName == name}">
-	  {{name}}
-	</div>
+        <div
+          @click="clickItem(name)"
+          :class="{active: activeName == name}">
+          {{name}}
+        </div>
       </template>
     </div>
 
@@ -62,8 +62,8 @@
        border: 1px solid #dcdfe6;
 
        &.active {
-	 color: rgb(64, 158, 255);
-	 border-bottom: 1px solid white;
+         color: rgb(64, 158, 255);
+         border-bottom: 1px solid white;
        }
      }
 
