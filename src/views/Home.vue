@@ -1,32 +1,6 @@
 <template>
   <div class="home">
-    <!-- <card v-model:text="text"
-	 v-model:isdone="isdone"
-	 v-model:expect="expect"
-	 v-model:finished="finished"/>
 
-	 <div style="height: 100px"/>
-
-	 <ForkCard/> -->
-        <!-- <hover-div/> -->
-
-    <Dialog text="click me"
-	    v-model:show="show"
-	    @cancel="onCancel"
-	    @submit="onSubmit">
-      <template v-slot:content>
-	<h1> Hello World </h1>
-	<h1> Hello World </h1>
-	<h1> Hello World </h1>
-	<h1> Hello World </h1>
-	<h1> Hello World </h1>
-	<h1> Hello World </h1>
-	<h1> Hello World </h1>
-	<h1> Hello World </h1>
-	<h1> Hello World </h1>
-	<h1> Hello World </h1>
-      </template>
-    </Dialog>
   </div>
 </template>
 

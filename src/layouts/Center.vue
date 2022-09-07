@@ -5,7 +5,6 @@
 </template>
 
 <script lang="ts" setup>
- import Row from './Row.vue'
  import {single as vSingle} from '@/directives'
 </script>
 
